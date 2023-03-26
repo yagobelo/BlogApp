@@ -10,8 +10,10 @@ const flash = require("connect-flash");
 require("./models/Postagem");
 const Postagem = mongoose.model("postagens");
 require("./models/Categoria");
-const Categoria = mongoose.model("categorias")
-const usuarios = require("./routes/usuario")
+const Categoria = mongoose.model("categorias");
+const usuarios = require("./routes/usuario");
+const passport = require("passport");
+require("./config/auth")(passport);
 
 /* CONFIGURAÇÕES */
 // sessão
@@ -20,6 +22,10 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use(flash())
 //middleware
 app.use((req, res, next) => {
