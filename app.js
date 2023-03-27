@@ -41,7 +41,7 @@ app.engine("handlebars", handlebars.engine({ defaulLayout: "main" }));
 app.set("view engine", "handlebars");
 // mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/blogapp").then(() => {
+mongoose.connect("mongodb://127.0.0.1/blogapp").then(() => {
   console.log("Banco de Dados Conectado!")
 }).catch((err) => {
   console.log("Houve um erro ao se conectar: " + err)
