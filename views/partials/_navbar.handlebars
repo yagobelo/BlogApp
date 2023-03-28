@@ -12,23 +12,26 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/admin">Listas</a>
         </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-current="page" href="/admin">Listas</a>
-        </li>
-        {{/if}}
-
-        {{#if eAdmin}}
         <li class="nav-item">
           <a class="nav-link active" href="/categorias">Categorias</a>
         </li>
         {{else}}
         <li class="nav-item">
+          <a class="nav-link disabled" aria-current="page" href="/admin">Listas</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link disabled" href="/categorias">Categorias</a>
         </li>
         {{/if}}
 
+
         {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link disabled">Logado com: {{user}}</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/usuarios/logout">Sair</a>
+        </li>
         {{else}}
         <li class="nav-item">
           <a class="nav-link" href="/usuarios/login">Login</a>
@@ -38,12 +41,6 @@
         </li>
         {{/if}}
 
-        {{#if user}}
-        <li class="nav-item">
-          <a class="nav-link disabled">Logado com:{{nome}}</a>
-        </li>
-        {{else}}
-        {{/if}}
     </div>
   </div>
 </nav>
